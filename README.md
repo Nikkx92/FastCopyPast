@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 🌐 **English** | [Русский](README_RU.md)
+=======
+>>>>>>> 35c94ff1c058706997c2f5e388306d0cc33b1221
 
 https://github.com/user-attachments/assets/ecc9fdfd-94b0-4d8d-9a1e-da78894ac1bf
 
