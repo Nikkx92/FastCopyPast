@@ -1,6 +1,5 @@
 name: Build and Release
 
-# Робот сработает только тогда, когда на GitHub прилетает тег, начинающийся с буквы "v" (например, v1.0.0)
 on:
   push:
     tags:
@@ -10,41 +9,31 @@ jobs:
   build-windows:
     runs-on: ubuntu-latest
     steps:
-      # 1. Скачиваем ваш код из репозитория
       - name: Checkout code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # 2. Устанавливаем язык Go
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version: 'stable' # Укажите вашу версию Go, если нужно
+          go-version: 'stable'
 
-      # 3. Устанавливаем компилятор gogio
       - name: Install gogio
         run: go install gioui.org/cmd/gogio@latest
 
-      # 4. Вытаскиваем версию из Git и компилируем через gogio
       - name: Build with gogio
         run: |
-          # Получаем имя тега (например, v1.2.3)
           TAG_NAME=${GITHUB_REF#refs/tags/}
-          # Убираем "v" для Windows-версии (получаем 1.2.3)
           CLEAN_VER=$(echo "$TAG_NAME" | sed 's/^v//')
-          # Дописываем .0, чтобы получилось четыре числа для Windows (1.2.3.0)
           WIN_VER="${CLEAN_VER}.0"
           
-          # Запускаем сборку (gogio сам скроет консоль и применит иконку)
-          # Также прокидываем короткую версию внутрь кода в переменную AppVersion
           gogio -target windows \
                 -version "$WIN_VER" \
                 -icon appicon.png \
                 -ldflags "-s -w -X 'main.version=$TAG_NAME'" \
                 -o FastCopyPast.exe .
 
-      # 5. Публикуем готовый релиз на GitHub и прикрепляем собранный .exe
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
