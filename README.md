@@ -1,24 +1,31 @@
+🌐 **English** | [Русский](README_RU.md)
+
+https://github.com/user-attachments/assets/ecc9fdfd-94b0-4d8d-9a1e-da78894ac1bf
+
 # FastCopyPast 📋
 
-Это удобный инструмент для автоматического сбора текста из буфера обмена. Больше не нужно переключаться между окнами, чтобы сохранить скопированные данные: приложение сделает это за вас.
+It's a standalone utility written in Go. It automatically monitors your clipboard and aggregates copied text fragments based on your custom rules, eliminating the need to constantly switch between windows.
+
+## ✨ Features
+
+* 🔄 **Automatic Capture:** Instantly reads text from the clipboard every time you press `Ctrl+C`.
+* ⚙️ **Flexible Join Modes:**
+    * `In-line` — appends new text fragments right after the previous ones.
+    * `New Line` — starts each copied text block on a brand-new line.
+* 🛠 **Custom Separators:** Set absolutely any delimiter between text chunks (e.g., a space, comma, arrow `->`, custom character, or emoji).
+* 🪶 **Zero Installation:** Compiles into a single, independent `.exe` file with no dependencies or system clutter.
+
+## 🚀 Getting Started
+
+### 💻 Ready-to-Run (For Users)
+1. Go to the [Releases](https://github.com/Nikkx92/FastCopyPast/releases) section.
+2. Download the latest `FastCopyPast.exe` file.(only for Windows now)
+3. Run it — the application is ready to use immediately.
 
 
-## ✨ Основные возможности
+## 📝 License
 
-* **Автоматический захват:** Приложение мгновенно считывает текст при каждом копировании (Ctrl+C).
-* **Гибкие режимы добавления:**
-    * `Подряд` — текст склеивается в одну сплошную строку.
-    * `С новой строки` — каждая новая запись начинается с чистой строки.
-* **Кастомные разделители:** Возможность задать любой собственный разделитель между фрагментами текста (например: запятая, точка с запятой, стрелочка `->`, пробел или смайлик).
+This project is open-source software licensed under the **MIT License**. You are free to use, modify, and distribute it, even for commercial purposes, as long as the original copyright notice is retained.
 
-## 🚀 Как запустить
+See the [LICENSE](LICENSE) file for details.
 
-1. Перейдите в раздел [Releases](ссылка_на_релизы_вашего_репозитория).
-2. Скачайте архив для вашей ОС (на данный момент только для `Windows`).
-3. Запустите `FastCopyPast.exe`.
-
-
-
-## 📝 Лицензия
-
-Этот проект распространяется под лицензией **MIT**. Подробнее см. в файле [LICENSE](LICENSE).
